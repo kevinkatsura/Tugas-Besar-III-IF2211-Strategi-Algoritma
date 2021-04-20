@@ -32,7 +32,7 @@ def algo_boyer_moore(text, pattern):
 
         # Jika semua karakter yang dibandingkan sama
         if (compare_pos < 0):
-            print("Ditemukan pada shift {}".format(shift))
+            print("Ditemukan pada shift {}".format(shift)) # --> Edit ini untuk output
 
             # Geser sejauh panjang pattern atau disesuaikan agar tepat membandingkan karakter terakhir pada text
             if (shift == len(text) - len(pattern)):
