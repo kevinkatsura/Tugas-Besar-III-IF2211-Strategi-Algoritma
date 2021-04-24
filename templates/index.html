@@ -5,19 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/main.js') }}"></script>
     <title>LazyBot</title>
 </head>
 <body>
     <div class="container">
         <div class="heading">LazyBot</div>
-        <div class="middle"></div>
+        <div class="middle" id="middle"></div>
         <div class="buttom">
-            <form action="">
+            <form>
                 <div class="masukan">
-                    <input type="text" name="masukan", placeholder="   Masukkan pesan">
+                    <input type="text" name="masukan", placeholder="   Masukkan pesan" id="masukan">
                 </div>
                 <div class="submit">
-                    <input type="image" src="../static/img/send.png" alt="Submit">
+                    <input type="image" type="submit" src="../static/img/send.png" alt="Submit">
                 </div>
             </form>
         </div>

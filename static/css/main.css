@@ -83,3 +83,15 @@ input[type=image] {
     border: 5px solid black;
     border-top: 0;
 }
+#pesan {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    text-align: right;
+    color: white;
+    background-color: black;
+    margin: 10px;
+    padding: 10px;
+    display: table;
+    margin-left: auto;
+    border-radius: 25px;
+}

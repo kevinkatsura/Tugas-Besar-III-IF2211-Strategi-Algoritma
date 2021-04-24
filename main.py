@@ -1,12 +1,26 @@
-from flask import Flask,render_template,url_for
+from flask import Flask,render_template,url_for,request, jsonify
 import os
 
 
 app = Flask(__name__)
+# input user container
+masukan = []
 
 @app.route('/')
 def index():
+   # if(request.method == 'POST'):
+   #    userInput = request.form.get("form")
+   #    print(userInput)
+   #    masukan.append(userInput)
+   #    return render_template("index.html",masukan=masukan)
    return render_template("index.html")
+
+@app.route('/proccess',methods=['POST'])
+def proccess():
+    message = request.form["message"]
+    if ( message ):
+        return jsonify({'message' : message})
+    return jsonify({'error' : 'Pesan tidak dikenal!'})
 
 @app.context_processor
 def override_url_for():
