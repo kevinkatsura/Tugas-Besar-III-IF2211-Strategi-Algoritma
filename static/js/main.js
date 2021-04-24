@@ -33,6 +33,7 @@ $(document).ready(function() {
           var scroll_box = document.getElementById('middle');
           scroll_box.scrollTop = scroll_box.scrollHeight;
         }, 1);
-
 });
+
+
 
