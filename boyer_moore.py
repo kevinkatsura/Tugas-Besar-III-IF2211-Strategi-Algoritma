@@ -119,7 +119,3 @@ def boyer_moore_print_all(text, pattern): # --> Prosedur untuk menunjukkan selur
                         shift += (len(text) - len(pattern) - shift)
                     else:
                         shift += len(pattern)
-
-
-boyer_moore_print_all("Kevin KAtsura Dani Putra Sitanggang sebagai mahasiswa di salah satu perguruan tinggi negeri terbaik Indonesia","Indonesia")
-boyer_moore_search("Kevin KAtsura Dani Putra Sitanggang sebagai mahasiswa di salah satu perguruan tinggi negeri terbaik Indonesia","Indonesia")
