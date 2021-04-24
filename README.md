@@ -10,7 +10,7 @@
 > Flask ( install dengan **pip3 install Flask** jika python 3.9 telah diinstal )
 
 ## Cara menjalankan
-> Arahkan active directory ke folder Tubes ini di terminal
-> Jalankan perintah **python3 main.py** pada terminal.
+> Arahkan active directory ke folder Tubes ini di terminal <br>
+> Jalankan perintah **python3 main.py** pada terminal. <br>
 > Masukkan **localhost:4444** di url box atau salin alamat yang diberikan pada terminal.
 
