@@ -1,43 +1,64 @@
 * {
     margin : 0;
     padding : 0;
+    box-sizing: border-box;
 }
 
 html,body {
     height: 100%;
 }
-body {
-    /* background-image: url("../img/background.jpeg"); */
-    /* background-repeat: no-repeat, repeat;
-    background-size: cover; */
-    background-color: white;
-}
 .container {
-    background-color: #fbeec1;
-    border: 5px solid black;
-    border-radius: 25px;
-    margin: 2px;
-    height: 100%;
-    max-height: 100%;
-    padding-bottom: 0.5%;
+    min-height: 100vh;
+    display: flex;
+    background: linear-gradient(to right top,hsl(168, 84%, 59%),#1ad5f1);
+    align-items: center;
+    justify-content: center;
+}
+
+.contents {
+    background: white;
+    height: 90vh;
+    width: 80%;
+    background: linear-gradient(to right bottom,rgba(255,255,255,0.7),rgba(255,255,255,0.3));
+    border-radius: 20px;  
+    backdrop-filter: blur(2rem);
+    z-index : 2;
+}
+.circle1,.circle2 {
+    background: white;
+    background: linear-gradient(to right bottom,rgba(255,255,255,1),rgba(255,255,255,0.3));
+    height: 24rem;
+    width: 24rem;
+    position: absolute;
+    border-radius: 50%;
+}
+.circle1 {
+    top: 2%;
+    left: 3%;
+    z-index : 1;
+}
+.circle2 {
+    bottom: 8%;
+    right: 5%;
+    z-index : 1;
 }
 .heading {
     height: 10%;
-    background-color: #daad86;
-    border-bottom: 5px solid black;
+    background: linear-gradient(to right bottom,rgba(255,255,255,1),rgba(255,255,255,0.3));
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     color: black;
     font-size: 50px;
+    font-family: fantasy;
     text-align: center;
 }
 .middle {
     height: 80%;
     overflow: scroll;
+    
 }
 .buttom {
     height: 10%;
-    border-top: 5px solid black;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
@@ -50,7 +71,7 @@ form {
 
 .masukan {
     height: 100%;
-    width: 89.5%;
+    width: 89.6%;
     display :inline-block;
 }
 .submit {
@@ -59,6 +80,7 @@ form {
     display:inline-block;
     overflow: hidden;
     border-bottom-right-radius: 20px;
+    margin-right: 0.5px;
 }
 
 input[type=text] {
@@ -66,21 +88,20 @@ input[type=text] {
     height: 90%;
     width: 100%;
     border-bottom-left-radius: 20px;
-    background-color: #daad86;
-    transition: 0.5s;
+    background: linear-gradient(to right bottom,rgba(255,255,255,1),rgba(255, 255, 255, 0.3));
+    transition: 1s;
     float: right;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 45px;
+    font-family: 'monospace', 'Courier', 'Courier New';
+    font-size: 40px;
     text-align: center;
 }
 input[type=text]:focus {
-    background-color:#fbeeb0;
+    background:linear-gradient(to right bottom,rgba(255,255,255,1),rgba(136, 226, 253, 0.8));
 }
 input[type=image] {
-    height: 95%;
+    height: 89%;
     width: 100%;
     background-color: white;
-    border: 5px solid black;
     border-top: 0;
 }
 #pesan {
