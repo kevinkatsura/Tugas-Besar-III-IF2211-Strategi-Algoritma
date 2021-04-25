@@ -94,6 +94,7 @@ input[type=text] {
     font-family: 'monospace', 'Courier', 'Courier New';
     font-size: 40px;
     text-align: center;
+    border:0;
 }
 input[type=text]:focus {
     background:linear-gradient(to right bottom,rgba(255,255,255,1),rgba(136, 226, 253, 0.8));

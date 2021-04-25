@@ -1,6 +1,4 @@
 $(document).ready(function() {
-        console.log("Checkpoint1");
-
     $("form").on('submit',function(event) {
         $.ajax({
             data: {
@@ -26,7 +24,6 @@ $(document).ready(function() {
             document.getElementById("masukan").value = "";
         });
         event.preventDefault();
-        console.log("Checkpoint2");
     });
 
     window.setInterval(function() {
