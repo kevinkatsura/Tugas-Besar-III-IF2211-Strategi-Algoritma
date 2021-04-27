@@ -1,4 +1,14 @@
 # Tugas-Besar-III-IF2211-Strategi-Algoritma
+## PROJECT NAME
+> Web application yang berupa chatbot. Chatbot ini berguna untuk menyimpan ***todo list*** sehingga membantu pengguna dalam mengetahui hal apa saja yang perlu dilakukan.
+> Aplikasi ini mirip seperti trelo dan app produktifitas lainnya. Perbedaan dan sekaligus keunikan dari aplikasi ini adalah berbentuk chatbot sehingga dalam penambahan task, pembacaan deadline task, dll dilakukan dengan mengirimkan pesan layaknya berbicara normal kepada bot. Setelah itu, bot akan memberikan informasi yang pengguna inginkan jika perintah masukan tersedia.
+
+## TABLE OF CONTENTS
+
+## GENERAL INFO
+
+## SCREENSHOTS
+![Tampilan Awal](https://drive.google.com/file/d/10-rh9OrTtGvdd3c-mR3QZJ366HjRQjjv/view?usp=sharing)
 
 ## Pengembang
 > 13519123 Muhammad Rifky Muthahhari <br>
