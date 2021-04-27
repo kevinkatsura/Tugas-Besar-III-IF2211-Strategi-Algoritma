@@ -8,8 +8,9 @@
 ## GENERAL INFO
 
 ## SCREENSHOTS
-![Tampilan Awal](https://drive.google.com/file/d/10-rh9OrTtGvdd3c-mR3QZJ366HjRQjjv/view?usp=sharing)
-
+<img src="https://drive.google.com/file/d/10-rh9OrTtGvdd3c-mR3QZJ366HjRQjjv/view?usp=sharing"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" />
 ## Pengembang
 > 13519123 Muhammad Rifky Muthahhari <br>
 
