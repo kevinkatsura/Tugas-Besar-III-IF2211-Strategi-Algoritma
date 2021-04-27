@@ -2,6 +2,8 @@ from flask import Flask, render_template, url_for, request, jsonify
 import os
 import identifikasi as id
 import connection as conn
+import Month
+import datetime
 
 app = Flask(__name__)
 # input user container
@@ -21,14 +23,14 @@ def proccess():
     sizeData = connection.db.child("LazyBotSize").get().val()
 
     # -----------------------------------------------------addTask-----------------------------------------------------
-    addTask = id.cek_tambah_task(message) #SELESAI
+    addTask = id.cek_tambah_task(message) # SELESAI
     if (addTask[0]):
         # UPDATE NUMBER OF DATA RECORD IN DATABASE
         newSize = sizeData + 1
         connection.db.update({'LazyBotSize': newSize})
 
         # DATA TO POST TO DATABASE
-        data = {'Id': newSize, 'Date': addTask[2][0], 'Course': addTask[1][0], 'Type': addTask[3][0],
+        data = {'Id': newSize, 'Date': Month.formattingTime(addTask[2][0]), 'Course': addTask[1][0], 'Type': addTask[3][0],
                 'Topic': addTask[4][0]}
         connection.db.child("LazyBot").push(data)
 
@@ -42,30 +44,77 @@ def proccess():
                         'BOT': result})
 
     # ----------------------------------------------------checkTask----------------------------------------------------
-    checkTask = id.cek_task(message)  # BELUM SELESAI
-    if (checkTask[0]):
+    checkTask = id.cek_task(message)
+    if checkTask[0]:
+        bufferData = []
         # RETRIEVE DATA FROM DATABASE
         data = connection.db.child("LazyBot").get()
+        if checkTask[1] == "case_a":
+            for s_data in data.each():
+                bufferData.append(s_data.val())
 
-        bufferData = []
-        for s_data in data.each():
-            bufferData.append(s_data.val())
-        # Urutkan berdasarkan Id
+        if checkTask[1] == "case_bi":
+            lowerBoundOfDate = datetime.datetime.strptime(Month.formattingTime(checkTask[2]), "%d/%m/%Y").date()
+            upperBoundOfDate = datetime.datetime.strptime(Month.formattingTime(checkTask[3]), "%d/%m/%Y").date()
+            for s_data in data.each():
+                datetime_object = datetime.datetime.strptime(s_data.val()["Date"], "%d/%m/%Y").date()
+                if lowerBoundOfDate <= datetime_object <= upperBoundOfDate:
+                    bufferData.append(s_data.val())
 
-        result = "[DAFTAR DEADLINE]<br>"
+        if checkTask[1] == "case_bii":
+            theTime = checkTask[2][0].split(" ")
+            a_datetime = datetime.datetime.now().date() + datetime.timedelta(days= (int(theTime[0])*7))
+            for s_data in data.each():
+                datetime_object = datetime.datetime.strptime(s_data.val()["Date"], "%d/%m/%Y").date()
+                if datetime_object <= a_datetime:
+                    bufferData.append(s_data.val())
+
+        if checkTask[1] == "case_biii":
+            theTime = checkTask[2][0].split(" ")
+            a_datetime = datetime.datetime.now().date() + datetime.timedelta(days=(int(theTime[0])))
+            for s_data in data.each():
+                datetime_object = datetime.datetime.strptime(s_data.val()["Date"], "%d/%m/%Y").date()
+                if datetime_object <= a_datetime:
+                    bufferData.append(s_data.val())
+
+        if checkTask[1] == "case_biv":
+            a_datetime = datetime.datetime.now().date()
+            for s_data in data.each():
+                datetime_object = datetime.datetime.strptime(s_data.val()["Date"], "%d/%m/%Y").date()
+                if a_datetime == datetime_object:
+                    bufferData.append(s_data.val())
+
+        if checkTask[1] == "case_c":
+            if checkTask[4] == "minggu":
+                a_datetime = datetime.datetime.now().date() + datetime.timedelta(days=(int(checkTask[3][0]) * 7))
+                for s_data in data.each():
+                    datetime_object = datetime.datetime.strptime(s_data.val()["Date"], "%d/%m/%Y").date()
+                    if datetime_object <= a_datetime and checkTask[2][0] == s_data.val()["Type"]:
+                        bufferData.append(s_data.val())
+
+            if checkTask[4] == "hari":
+                a_datetime = datetime.datetime.now().date() + datetime.timedelta(days=(int(checkTask[3][0])))
+                for s_data in data.each():
+                    datetime_object = datetime.datetime.strptime(s_data.val()["Date"], "%d/%m/%Y").date()
+                    if datetime_object <= a_datetime and checkTask[2][0] == s_data.val()["Type"]:
+                        bufferData.append(s_data.val())
+
+        if ( len(bufferData) == 0):
+            result = "Tidak ada deadline."
+        else:
+            result = "[DAFTAR DEADLINE]<br>"
         # ACCESS EVERY SINGLE DATA
         count = 1
-        for s_data in (data.each()):
-            valData = s_data.val()
-            result = result + "" + count + ". (ID: " + valData["Id"] + ") " + valData["Date"] + " - " + valData[
-                "Course"] + " - " + valData["Type"] + " - " + valData["Topic"] + "<br>"
+        for s_data in bufferData:
+            result = result + "" + str(count) + ". (ID: " + str(s_data["Id"]) + ") " + s_data["Date"] + " - " + s_data[
+                "Course"] + " - " + s_data["Type"] + " - " + s_data["Topic"] + "<br>"
             count += 1
         return jsonify({'Ncase': 2,
                         'message': message,
                         'BOT': result})
 
     # ----------------------------------------------------checkDeadline------------------------------------------------
-    checkDeadline = id.cek_deadline(message)
+    checkDeadline = id.cek_deadline(message) # SELESAI
     if (checkDeadline[0]):
         data = connection.db.child("LazyBot").get()
         for s_data in data.each():
@@ -81,7 +130,7 @@ def proccess():
                         'BOT': result})
 
     # ------------------------------------------------------checkUpdate------------------------------------------------
-    checkUpdate = id.cek_perbaharui(message) #SELESAI
+    checkUpdate = id.cek_perbaharui(message) # SELESAI
     if (checkUpdate[0]):
         # PENGKONDISIAN TASK YANG DIPILIH ADA TERSEDIA
         if (int(checkUpdate[1][0]) <= sizeData):
@@ -103,7 +152,7 @@ def proccess():
                         'BOT': result})
 
     # -----------------------------------------------------checkCompleted----------------------------------------------
-    checkCompleted = id.cek_selesai(message) #SELESAI
+    checkCompleted = id.cek_selesai(message) # SELESAI
     if (checkCompleted[0]):
         # PENGKONDISIAN TASK YANG DIPILIH ADA TERSEDIA
         if int(checkCompleted[1][0]) <= sizeData:
@@ -118,7 +167,6 @@ def proccess():
             connection.db.update({'LazyBotSize': sizeData - 1})
 
             # UPDATE ID DARI TIAP TASK
-            data = connection.db.child("LazyBot").get()
             for s_data in data.each():
                 if (s_data.val()['Id'] > int(checkCompleted[1][0])):
                     key = s_data.key()  # AMBIL KEY
@@ -134,7 +182,7 @@ def proccess():
 
     # --------------------------------------------------------checkHelp------------------------------------------------
 
-    checkHelp = id.cek_help(message) #SELESAI
+    checkHelp = id.cek_help(message) # SELESAI
     if (checkHelp[0]):
         help = "[ FITUR ]<br>" \
                "1. Menambahkan task baru.<br>" \

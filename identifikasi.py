@@ -17,11 +17,11 @@ def cek_task(text):
     # Case b.ii
     # Kata penting: deadline, N, minggu
     result_minggu = bm.boyer_moore_search(text.lower(), "minggu")
-    N_minggu = re.findall("(\\d).minggu", text, re.IGNORECASE)
+    N_minggu = re.findall("(\\d+).minggu", text, re.IGNORECASE)
 
     # Case b.iii
     # Kata penting: deadline, N, hari
-    N_hari = re.findall("(\\d).hari", text, re.IGNORECASE)
+    N_hari = re.findall("(\\d+).hari", text, re.IGNORECASE)
     result_hari = bm.boyer_moore_search(text.lower(), "hari")
 
     # Case b.iv
@@ -40,22 +40,22 @@ def cek_task(text):
                 return (True, "case_biv")
             elif (result_minggu == True and len(N_minggu) != 0):
                 if (len(tipe) == 0):
-                    return (True, "case_bii")
+                    return (True, "case_bii",N_minggu)
                 elif (len(tipe) != 0):
-                    return (True, "case_c")
+                    return (True, "case_c",tipe,N_minggu,"minggu")
                 else:
                     return (False, "error")
             elif (result_hari == True and len(N_hari) != 0):
                 if (len(tipe) == 0):
-                    return (True, "case_biii")
+                    return (True, "case_biii",N_hari)
                 elif (len(tipe) != 0):
-                    return (True, "case_c")
+                    return (True, "case_c",tipe,N_hari,"hari")
                 else:
                     return (False, "error")
             else:
                 return (False, "error")
         elif (len(date) == 2):
-            return (True, "case_bi")
+            return (True, "case_bi",date[0],date[1])
         else:
             return (False, "error")
 
