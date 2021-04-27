@@ -30,6 +30,9 @@
      5. Menandai task selesai.
      6. Help.
 
+## Status
+> Diselesaikan dengan baik. Semua fitur berhasil diimplementasikan
+
 ## Pengembang
 > 13519123 Muhammad Rifky Muthahhari <br>
 
