@@ -44,20 +44,20 @@ def cek_task(text):
                 elif (len(tipe) != 0):
                     return (True, "case_c",tipe,N_minggu,"minggu")
                 else:
-                    return (False, "error")
+                    return (True, "case_a")
             elif (result_hari == True and len(N_hari) != 0):
                 if (len(tipe) == 0):
                     return (True, "case_biii",N_hari)
                 elif (len(tipe) != 0):
                     return (True, "case_c",tipe,N_hari,"hari")
                 else:
-                    return (False, "error")
+                    return (True, "case_a")
             else:
-                return (False, "error")
+                return (True, "case_a")
         elif (len(date) == 2):
             return (True, "case_bi",date[0],date[1])
         else:
-            return (False, "error")
+            return (True, "case_a")
 
 def cek_deadline(text):
     # Kata penting: deadline, matkul
