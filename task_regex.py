@@ -10,10 +10,10 @@ def regex_search(text):	# --> Funsgi untuk identifikasi apakah string adalah per
 	matkul = re.findall("[A-Z]{2}[0-9]{4}", text, re.IGNORECASE)
 	date = re.findall("[0-9]{2}.[/-].[0-9]{2}.[/-].[0-9]{4}|[0-9]{2}.\\w+.[0-9]{4}", text, re.IGNORECASE)
 	tipe = re.findall(regex_tipe, text, re.IGNORECASE)
-	topik = re.findall("[A-Z]{2}[0-9]{4}.(.*)", text, re.IGNORECASE)
+	topik = re.search("[A-Z]{2}[0-9]{4}.(.*).([0-9]{2}.[/-].[0-9]{2}.[/-].[0-9]{4}|[0-9]{2}.\\w+.[0-9]{4})", text, re.IGNORECASE)
 
-	if (len(matkul) != 0 and len(date) != 0 and len(tipe) != 0 and len(topik) != 0):
-		return (True, matkul, date, tipe, topik)
+	if (len(matkul) != 0 and len(date) != 0 and len(tipe) != 0 and topik.__sizeof__() != 0):
+		return (True, matkul, date, tipe, [topik.group(1)])
 	else:
 		return (False, matkul, date, tipe, topik)
 
