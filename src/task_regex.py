@@ -1,7 +1,7 @@
 import re
 
 # Baca file berisi daftar kata penting untuk tipe task
-file_kata_tipe = open("file_kata_tipe.txt", "r")
+file_kata_tipe = open("../test/file_kata_tipe.txt", "r")
 Lines = file_kata_tipe.readlines()
 Lines = [line.strip('\n\r') for line in Lines]
 regex_tipe = "|".join(line for line in Lines)
