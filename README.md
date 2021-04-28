@@ -23,7 +23,7 @@
 ## Screenshots
 
 ## Requirements
-> Python 3.9
+> Python 3.9 ( python3 --version )
 
 > Flask ( install dengan **pip3 install Flask** jika python 3.9 telah diinstal )
 
