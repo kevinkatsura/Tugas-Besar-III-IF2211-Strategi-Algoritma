@@ -23,7 +23,7 @@ def proccess():
     sizeData = connection.db.child("LazyBotSize").get().val()
 
     # -----------------------------------------------------addTask-----------------------------------------------------
-    addTask = id.cek_tambah_task(message) # SELESAI
+    addTask = id.cek_tambah_task(message)
     if (addTask[0]):
         # UPDATE NUMBER OF DATA RECORD IN DATABASE
         newSize = sizeData + 1
@@ -114,7 +114,7 @@ def proccess():
                         'BOT': result})
 
     # ----------------------------------------------------checkDeadline------------------------------------------------
-    checkDeadline = id.cek_deadline(message) # SELESAI
+    checkDeadline = id.cek_deadline(message) 
     if (checkDeadline[0]):
         data = connection.db.child("LazyBot").get()
         for s_data in data.each():
@@ -130,7 +130,7 @@ def proccess():
                         'BOT': result})
 
     # ------------------------------------------------------checkUpdate------------------------------------------------
-    checkUpdate = id.cek_perbaharui(message) # SELESAI
+    checkUpdate = id.cek_perbaharui(message) 
     if (checkUpdate[0]):
         # PENGKONDISIAN TASK YANG DIPILIH ADA TERSEDIA
         if (int(checkUpdate[1][0]) <= sizeData):
@@ -152,7 +152,7 @@ def proccess():
                         'BOT': result})
 
     # -----------------------------------------------------checkCompleted----------------------------------------------
-    checkCompleted = id.cek_selesai(message) # SELESAI
+    checkCompleted = id.cek_selesai(message) 
     if (checkCompleted[0]):
         # PENGKONDISIAN TASK YANG DIPILIH ADA TERSEDIA
         if int(checkCompleted[1][0]) <= sizeData:
@@ -182,7 +182,7 @@ def proccess():
 
     # --------------------------------------------------------checkHelp------------------------------------------------
 
-    checkHelp = id.cek_help(message) # SELESAI
+    checkHelp = id.cek_help(message) 
     if (checkHelp[0]):
         help = "[ FITUR ]<br>" \
                "1. Menambahkan task baru.<br>" \
@@ -192,19 +192,22 @@ def proccess():
                "5. Menandai task selesai.<br>" \
                "6. Help.<br>" \
                "" \
-               "<br>[ DAFTAR KATA PENTING ]<br>" \
+               "<br>[ DAFTAR KATA PENTING / TIPE ]<br>" \
                "1. Tubes<br>" \
                "2. Tucil<br>" \
                "3. Kuis<br>" \
                "4. Ujian<br>" \
-               "5. Praktikum"
+               "5. Praktikum<br>" \
+               "" \
+               "<br> [ FORMAT PESAN PENAMBAHAN TASK KEPADA BOT YANG BENAR ]<br>" \
+               " > Tipe - Matkul - Topik - Tanggal <br>" \
+               " > Contoh : bot, tolong tambahin task untuk Tubes IF2211 String Matching 25/05/2021"
 
         return jsonify({'Ncase': 6,
                         'message': message,
                         'BOT': help})
 
     # -----------------------------------------------------------------------------------------------------------------
-
     return jsonify({'message': message, 'error': 'Pesan tidak dikenal!'})
 
 

@@ -57,7 +57,7 @@ html,body {
     overflow: scroll;
     
 }
-.buttom {
+.bottom {
     height: 10%;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -107,7 +107,7 @@ input[type=image] {
 }
 #pesan {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 30px;
+    font-size: 20px;
     text-align: right;
     color: white;
     background-color: black;
@@ -119,7 +119,7 @@ input[type=image] {
 }
 #BOT {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 30px;
+    font-size: 20px;
     text-align: left;
     color: white;
     background-color: black;
