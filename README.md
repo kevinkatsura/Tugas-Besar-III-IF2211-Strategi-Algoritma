@@ -1,6 +1,10 @@
 # Tugas-Besar-III-IF2211-Strategi-Algoritma
 ## PROJECT NAME
-          Chatbot yang kami buat bernama LazyBot yang dikembangkan berbasis web application. Chatbot ini berguna untuk menyimpan todo list sehingga membantu pengguna dalam mengetahui hal apa saja yang perlu dilakukan. Aplikasi ini mirip seperti trello dan app produktivitas lainnya. Perbedaan dan sekaligus keunikan dari aplikasi ini adalah berbentuk chatbot sehingga dalam penambahan task, pembacaan deadline task, dll dilakukan dengan mengirimkan pesan layaknya berbicara normal kepada bot. Setelah itu, bot akan memberikan informasi yang pengguna inginkan jika perintah masukan tersedia.
+          Chatbot yang kami buat bernama LazyBot yang dikembangkan berbasis web application. 
+          Chatbot ini berguna untuk menyimpan todo list sehingga membantu pengguna dalam mengetahui hal apa saja yang perlu dilakukan. 
+          Aplikasi ini mirip seperti trello dan app produktivitas lainnya. 
+          Perbedaan dan sekaligus keunikan dari aplikasi ini adalah berbentuk chatbot sehingga dalam penambahan task, pembacaan deadline task, dll dilakukan dengan mengirimkan pesan layaknya berbicara normal kepada bot. 
+          Setelah itu, bot akan memberikan informasi yang pengguna inginkan jika perintah masukan tersedia.
 
 ## Tabel Of Contents
 > [General Info](#general-info)
