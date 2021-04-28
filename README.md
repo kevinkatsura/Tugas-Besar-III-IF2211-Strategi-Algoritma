@@ -24,8 +24,6 @@
 ## General Info
 > Aplikasi ini dibuat untuk memenuhi **TUGAS BESAR III IF2211 STRATEGI ALGORITMA**
 
-## Screenshots
-
 ## Requirements
 > Python 3.9 ( python3 --version )
 
