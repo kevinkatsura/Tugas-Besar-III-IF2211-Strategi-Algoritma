@@ -63,18 +63,20 @@ def proccess():
 
         if checkTask[1] == "case_bii":
             theTime = checkTask[2][0].split(" ")
-            a_datetime = datetime.datetime.now().date() + datetime.timedelta(days= (int(theTime[0])*7))
+            now_time = datetime.datetime.now().date()
+            a_datetime = now_time + datetime.timedelta(days= (int(theTime[0])*7))
             for s_data in data.each():
                 datetime_object = datetime.datetime.strptime(s_data.val()["Date"], "%d/%m/%Y").date()
-                if datetime_object <= a_datetime:
+                if a_datetime >= datetime_object >= now_time:
                     bufferData.append(s_data.val())
 
         if checkTask[1] == "case_biii":
             theTime = checkTask[2][0].split(" ")
-            a_datetime = datetime.datetime.now().date() + datetime.timedelta(days=(int(theTime[0])))
+            now_time = datetime.datetime.now().date()
+            a_datetime = now_time + datetime.timedelta(days=(int(theTime[0])))
             for s_data in data.each():
                 datetime_object = datetime.datetime.strptime(s_data.val()["Date"], "%d/%m/%Y").date()
-                if datetime_object <= a_datetime:
+                if a_datetime >= datetime_object >= now_time:
                     bufferData.append(s_data.val())
 
         if checkTask[1] == "case_biv":
@@ -86,17 +88,19 @@ def proccess():
 
         if checkTask[1] == "case_c":
             if checkTask[4] == "minggu":
-                a_datetime = datetime.datetime.now().date() + datetime.timedelta(days=(int(checkTask[3][0]) * 7))
+                now_time = datetime.datetime.now().date()
+                a_datetime = now_time + datetime.timedelta(days=(int(checkTask[3][0]) * 7))
                 for s_data in data.each():
                     datetime_object = datetime.datetime.strptime(s_data.val()["Date"], "%d/%m/%Y").date()
-                    if datetime_object <= a_datetime and checkTask[2][0].lower() == s_data.val()["Type"].lower():
+                    if a_datetime >= datetime_object >= now_time and checkTask[2][0].lower() == s_data.val()["Type"].lower():
                         bufferData.append(s_data.val())
 
             if checkTask[4] == "hari":
-                a_datetime = datetime.datetime.now().date() + datetime.timedelta(days=(int(checkTask[3][0])))
+                now_time = datetime.datetime.now().date()
+                a_datetime = now_time + datetime.timedelta(days=(int(checkTask[3][0])))
                 for s_data in data.each():
                     datetime_object = datetime.datetime.strptime(s_data.val()["Date"], "%d/%m/%Y").date()
-                    if datetime_object <= a_datetime and checkTask[2][0].lower() == s_data.val()["Type"].lower():
+                    if a_datetime >= datetime_object >= now_time and checkTask[2][0].lower() == s_data.val()["Type"].lower():
                         bufferData.append(s_data.val())
 
         if ( len(bufferData) == 0):

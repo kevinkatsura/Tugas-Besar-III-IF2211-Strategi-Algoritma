@@ -12,7 +12,7 @@ def cek_task(text):
 
     # Case b.i
     # Kata penting: deadline, tgl1, tgl2
-    date = re.findall("[0-9]{2}.[/-].[0-9]{2}.[/-].[0-9]{4}|[0-9]{2}.\\w+.[0-9]{4}", text, re.IGNORECASE)
+    date = re.findall("[0-9]{2}.[/-].[0-9]{2}.[/-].[0-9]{4}|[0-9]+.\\w+.[0-9]{4}", text, re.IGNORECASE)
 
     # Case b.ii
     # Kata penting: deadline, N, minggu
@@ -78,7 +78,7 @@ def cek_perbaharui(text):
     # Kata penting: task, IDTask, tgl
     result_task = bm.boyer_moore_search(text.lower(), "task")
     N_task = re.findall("task.(\\d)", text, re.IGNORECASE)
-    date = re.findall("[0-9]{2}.[/-].[0-9]{2}.[/-].[0-9]{4}|[0-9]{2}.\\w+.[0-9]{4}", text, re.IGNORECASE)
+    date = re.findall("[0-9]{2}.[/-].[0-9]{2}.[/-].[0-9]{4}|[0-9]+.\\w+.[0-9]{4}", text, re.IGNORECASE)
 
     if (result_task == True and len(N_task) != 0 and len(date) == 1):
         return (True, N_task, date)
