@@ -10,12 +10,19 @@ def regex_search(text):	# --> Funsgi untuk identifikasi apakah string adalah per
 	matkul = re.findall("[A-Z]{2}[0-9]{4}", text, re.IGNORECASE)
 	date = re.findall("[0-9]{2}.[/-].[0-9]{2}.[/-].[0-9]{4}|[0-9]{2}.\\w+.[0-9]{4}", text, re.IGNORECASE)
 	tipe = re.findall(regex_tipe, text, re.IGNORECASE)
-	topik = re.search("[A-Z]{2}[0-9]{4}.(.*).([0-9]{2}.[/-].[0-9]{2}.[/-].[0-9]{4}|[0-9]{2}.\\w+.[0-9]{4})", text, re.IGNORECASE)
+	topik1 = re.findall("[A-Z]{2}[0-9]{4}.(.*).pada", text, re.IGNORECASE)
+	topik2 = re.search("[A-Z]{2}[0-9]{4}.(.*).([0-9]{2}.[/-].[0-9]{2}.[/-].[0-9]{4}|[0-9]{2}.\\w+.[0-9]{4})", text, re.IGNORECASE)
 
-	if (len(matkul) != 0 and len(date) != 0 and len(tipe) != 0 and topik.__sizeof__() != 0):
-		return (True, matkul, date, tipe, [topik.group(1)])
+	if (len(matkul) != 0 and len(date) != 0 and len(tipe) != 0):
+		if (len(topik1) == 1):
+			return (True, matkul, date, tipe, topik1)
+		else:
+			if (topik2):
+				return (True, matkul, date, tipe, [topik2.group(1)])
+			else:
+				return (False, matkul, date, tipe, "error")
 	else:
-		return (False, matkul, date, tipe, topik)
+		return (False, matkul, date, tipe, "error")
 
 def regex_print(text):	# --> Prosedur untuk print hasil yang dibaca dari regex
 	matkul = re.findall("[A-Z]{2}[0-9]{4}", text, re.IGNORECASE)
