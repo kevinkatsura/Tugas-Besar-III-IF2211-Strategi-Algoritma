@@ -10,7 +10,13 @@
 
 > [Requirements](#requirements)
 
+> [Cara menjalankan](#cara-menjalankan)
 
+> [Fitur](#fitur)
+
+> [Status](#status)
+
+> [Author](#pengembang)
 
 ## General Info
 > Aplikasi ini dibuat untuk memenuhi **TUGAS BESAR III IF2211 STRATEGI ALGORITMA**
