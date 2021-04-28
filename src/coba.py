@@ -1,5 +1,5 @@
 import identifikasi
 
-hasil =  identifikasi.cek_task(" deadline 100 hari")
+hasil =  identifikasi.cek_task("tubes 200 hari")
 
-print(hasil[2][0].split(" ")[0])
+print(hasil)

@@ -1,14 +1,18 @@
 # Tugas-Besar-III-IF2211-Strategi-Algoritma
+## PROJECT NAME
+> Web application yang berupa chatbot. Chatbot ini berguna untuk menyimpan ***todo list*** sehingga membantu pengguna dalam mengetahui hal apa saja yang perlu dilakukan.
+> Aplikasi ini mirip seperti trelo dan app produktifitas lainnya. Perbedaan dan sekaligus keunikan dari aplikasi ini adalah berbentuk chatbot sehingga dalam penambahan task, pembacaan deadline task, dll dilakukan dengan mengirimkan pesan layaknya berbicara normal kepada bot. Setelah itu, bot akan memberikan informasi yang pengguna inginkan jika perintah masukan tersedia.
 
-## Pengembang
-> 13519123 Muhammad Rifky Muthahhari <br>
+## Tabel Of Contents
 
-> 13519198 Aurelius Marcel Candra <br>
+## General Info
+> Aplikasi ini dibuat untuk memenuhi **TUGAS BESAR III IF2211 STRATEGI ALGORITMA**
 
-> 13519216 Kevin Katsura Dani Sitanggang 
+## Screenshots
 
 ## Requirements
 > Python 3.9
+
 > Flask ( install dengan **pip3 install Flask** jika python 3.9 telah diinstal )
 
 ## Cara menjalankan
@@ -17,4 +21,26 @@
 > Jalankan perintah **python3 main.py** pada terminal. <br>
 
 > Masukkan **localhost:4444** di url box atau salin alamat yang diberikan pada terminal.
+
+## Fitur
+     1. Menambahkan task baru.
+     2. Melihat daftar task.
+     3. Menampilkan deadline task.
+     4. Memperbaharui task.
+     5. Menandai task selesai.
+     6. Help.
+
+## Status
+> Diselesaikan dengan baik. Semua fitur berhasil diimplementasikan
+
+## Pengembang
+> 13519123 Muhammad Rifky Muthahhari <br>
+
+> 13519198 Aurelius Marcel Candra <br>
+
+> 13519216 Kevin Katsura Dani Sitanggang 
+
+
+
+
 

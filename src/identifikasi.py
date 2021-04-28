@@ -33,7 +33,14 @@ def cek_task(text):
     tipe = re.findall(tre.regex_tipe, text, re.IGNORECASE)
 
     if (result_deadline == False):
-        return (False, "error")
+        if(len(tipe) == 0):
+            return (False, "error")
+        else:
+            if ( len(N_minggu) > 0  and result_minggu == True):
+                return (True, "case_c",tipe,N_minggu,"minggu")
+            if ( len (N_hari) > 0 and result_hari == True ):
+                return (True, "case_c",tipe,N_hari,"hari")
+            return (False, "error")
     else:
         if (len(date) == 0):
             if (result_hari_ini == True):
@@ -57,7 +64,7 @@ def cek_task(text):
         elif (len(date) == 2):
             return (True, "case_bi",date[0],date[1])
         else:
-            return (True, "case_a")
+            return (False, "error")
 
 def cek_deadline(text):
     # Kata penting: deadline, matkul
