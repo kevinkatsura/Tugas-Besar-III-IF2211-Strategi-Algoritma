@@ -43,6 +43,26 @@ def proccess():
                         'message': message,
                         'BOT': result})
 
+    # ----------------------------------------------------checkDeadline------------------------------------------------
+    checkDeadline = id.cek_deadline(message)
+    if checkDeadline[0]:
+        bufferDate = []
+        result = ""
+        data = connection.db.child("LazyBot").get()
+        for s_data in data.each():
+            if str(checkDeadline[1][0]).lower() == str(s_data.val()["Course"].lower()):
+                if str(s_data.val()["Type"]).lower() == "tubes" or str(s_data.val()["Type"]).lower() == "tucil":
+                    bufferDate.append(s_data.val()["Date"])
+
+        if len(bufferDate) > 0:
+            for i in bufferDate:
+                result = result + i + "<br>"
+        else:
+            result = "Mata kuliah yang dimaksud tidak tersedia."
+        return jsonify({'Ncase': 3,
+                        'message': message,
+                        'BOT': result})
+
     # ----------------------------------------------------checkTask----------------------------------------------------
     checkTask = id.cek_task(message)
     if checkTask[0]:
@@ -114,22 +134,6 @@ def proccess():
                 "Course"] + " - " + s_data["Type"] + " - " + s_data["Topic"] + "<br>"
             count += 1
         return jsonify({'Ncase': 2,
-                        'message': message,
-                        'BOT': result})
-
-    # ----------------------------------------------------checkDeadline------------------------------------------------
-    checkDeadline = id.cek_deadline(message) 
-    if (checkDeadline[0]):
-        data = connection.db.child("LazyBot").get()
-        for s_data in data.each():
-            if str(checkDeadline[1][0]) == str(s_data.val()["Course"]):
-                key = s_data.key()
-                break
-        if key:
-            result = conn.Connection().db.child("LazyBot").child(key).get().val()["Date"]
-        else:
-            result = "Mata kuliah yang dimaksud tidak tersedia."
-        return jsonify({'Ncase': 3,
                         'message': message,
                         'BOT': result})
 
