@@ -37,7 +37,7 @@ def proccess():
         # DATA RETURN TO USER
         result = "[TASK BERHASIL DICATAT]<br>" \
                  "(ID : " \
-                 "" + str(newSize) + ") " + addTask[2][0] + " - " + addTask[1][0] + " - " + addTask[3][0] + " - " + \
+                 "" + str(newSize) + ") " + str(Month.formattingTime(addTask[2][0])) + " - " + addTask[1][0] + " - " + addTask[3][0] + " - " + \
                  addTask[4][0]
         return jsonify({'Ncase': 1,
                         'message': message,
@@ -89,14 +89,14 @@ def proccess():
                 a_datetime = datetime.datetime.now().date() + datetime.timedelta(days=(int(checkTask[3][0]) * 7))
                 for s_data in data.each():
                     datetime_object = datetime.datetime.strptime(s_data.val()["Date"], "%d/%m/%Y").date()
-                    if datetime_object <= a_datetime and checkTask[2][0] == s_data.val()["Type"].lower():
+                    if datetime_object <= a_datetime and checkTask[2][0].lower() == s_data.val()["Type"].lower():
                         bufferData.append(s_data.val())
 
             if checkTask[4] == "hari":
                 a_datetime = datetime.datetime.now().date() + datetime.timedelta(days=(int(checkTask[3][0])))
                 for s_data in data.each():
                     datetime_object = datetime.datetime.strptime(s_data.val()["Date"], "%d/%m/%Y").date()
-                    if datetime_object <= a_datetime and checkTask[2][0] == s_data.val()["Type"].lower():
+                    if datetime_object <= a_datetime and checkTask[2][0].lower() == s_data.val()["Type"].lower():
                         bufferData.append(s_data.val())
 
         if ( len(bufferData) == 0):

@@ -21,7 +21,7 @@ def regex_print(text):	# --> Prosedur untuk print hasil yang dibaca dari regex
 	matkul = re.findall("[A-Z]{2}[0-9]{4}", text, re.IGNORECASE)
 	date = re.findall("[0-9]{2}.[/-].[0-9]{2}.[/-].[0-9]{4}|[0-9]{2}.\\w+.[0-9]{4}", text, re.IGNORECASE)
 	tipe = re.findall(regex_tipe, text, re.IGNORECASE)
-	topik = re.findall("[A-Z]{2}[0-9]{4}.(.*)", text, re.IGNORECASE)
+	topik = re.search("[A-Z]{2}[0-9]{4}.(.*).([0-9]{2}.[/-].[0-9]{2}.[/-].[0-9]{4}|[0-9]{2}.\\w+.[0-9]{4})", text, re.IGNORECASE)
 
 	print("Matkul: {}".format(matkul))
 	print("Date: {}".format(date))

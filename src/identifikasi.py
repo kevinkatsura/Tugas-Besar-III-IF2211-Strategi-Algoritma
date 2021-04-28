@@ -48,17 +48,15 @@ def cek_task(text):
             elif (result_minggu == True and len(N_minggu) != 0):
                 if (len(tipe) == 0):
                     return (True, "case_bii",N_minggu)
-                elif (len(tipe) != 0):
-                    return (True, "case_c",tipe,N_minggu,"minggu")
                 else:
                     return (True, "case_a")
             elif (result_hari == True and len(N_hari) != 0):
                 if (len(tipe) == 0):
                     return (True, "case_biii",N_hari)
-                elif (len(tipe) != 0):
-                    return (True, "case_c",tipe,N_hari,"hari")
                 else:
                     return (True, "case_a")
+            elif (len(tipe) != 0):
+                return (True, "case_a")
             else:
                 return (True, "case_a")
         elif (len(date) == 2):

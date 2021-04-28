@@ -4,6 +4,19 @@
 > Aplikasi ini mirip seperti trelo dan app produktifitas lainnya. Perbedaan dan sekaligus keunikan dari aplikasi ini adalah berbentuk chatbot sehingga dalam penambahan task, pembacaan deadline task, dll dilakukan dengan mengirimkan pesan layaknya berbicara normal kepada bot. Setelah itu, bot akan memberikan informasi yang pengguna inginkan jika perintah masukan tersedia.
 
 ## Tabel Of Contents
+> [General Info](#general-info)
+
+> [Screenshots](#screenshots)
+
+> [Requirements](#requirements)
+
+> [Cara menjalankan](#cara-menjalankan)
+
+> [Fitur](#fitur)
+
+> [Status](#status)
+
+> [Author](#pengembang)
 
 ## General Info
 > Aplikasi ini dibuat untuk memenuhi **TUGAS BESAR III IF2211 STRATEGI ALGORITMA**
